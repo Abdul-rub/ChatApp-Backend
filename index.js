@@ -42,12 +42,14 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 6000 
 const server = app.listen(PORT, console.log(`Server started on ${PORT}`.yellow.bold))
 
-const io= require('socket.io')(server,{
-    pingTimeout:60000,
-    cors:{
-      origin: ['https://stirring-bubblegum-adf486.netlify.app/', 'http://localhost:3000'],
-    },
-})
+const io = require('socket.io')(server, {
+  pingTimeout: 60000,
+  cors: {
+     origin: ['https://stirring-bubblegum-adf486.netlify.app', 'http://localhost:3000'],
+     methods: ['GET', 'POST'],
+     credentials: true,
+  },
+});
 
 io.on('connection',(socket)=>{
     console.log("connected to socket.io")
