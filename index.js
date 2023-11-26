@@ -45,7 +45,7 @@ const server = app.listen(PORT, console.log(`Server started on ${PORT}`.yellow.b
 const io= require('socket.io')(server,{
     pingTimeout:60000,
     cors:{
-        origin: 'https://simplechat-app007.netlify.app',
+      origin: ['https://stirring-bubblegum-adf486.netlify.app/', 'http://localhost:3000'],
     },
 })
 
